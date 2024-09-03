@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import API from '../services/api';
-import { Container, Row, Col, Card, Navbar, Offcanvas, Nav, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Card, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './NavigationBar';
 
 const Dashboard = () => {
   const [summary, setSummary] = useState({ drivers: 0, customers: 0, rides: 0 });
   const [notifications, setNotifications] = useState([]);
-  const [show, setShow] = useState(false);
+  //const [setShow] = useState(false);
 
   useEffect(() => {
     fetchSummary();
@@ -32,8 +32,8 @@ const Dashboard = () => {
     }
   };
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
 
   return (
     <Container fluid className="p-0">

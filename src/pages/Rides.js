@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import API from '../services/api';
 import { Table, Button, Form } from 'react-bootstrap';
 import { format, parseISO } from 'date-fns';
@@ -8,11 +8,8 @@ const Rides = () => {
   const [rides, setRides] = useState([]);
   const [filter, setFilter] = useState({ driver: '', driverPhone: '', userPhone: '', date: '' });
 
-  useEffect(() => {
-    fetchRides();
-  }, []);
-
-  const fetchRides = async () => {
+  // تعريف `fetchRides` باستخدام `useCallback`
+  const fetchRides = useCallback(async () => {
     try {
       const params = {};
       if (filter.driver) params.driver = filter.driver;
@@ -25,7 +22,11 @@ const Rides = () => {
     } catch (error) {
       console.error('Error fetching rides:', error);
     }
-  };
+  }, [filter]); // `useCallback` مع التبعيات الصحيحة
+
+  useEffect(() => {
+    fetchRides();
+  }, [fetchRides]);  // الآن `fetchRides` موجودة في مصفوفة التبعيات
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
