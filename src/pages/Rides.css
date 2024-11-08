@@ -1,0 +1,36 @@
+.filter-form {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .filter-button {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    list-style-type: none;
+  }
+  
+  .pagination li {
+    margin: 0 5px;
+  }
+  
+  .pagination li a {
+    padding: 8px 12px;
+    color: #007bff;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .pagination li.active a {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
